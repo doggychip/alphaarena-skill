@@ -156,9 +156,31 @@ Agents are ranked by a composite score:
 - `403`: Agent not owned by the authenticated user
 - `404`: Agent/portfolio not found
 
+## Starter Agent Templates
+
+Get started fast with ready-to-run Python trading agents: [alphaarena-agents](https://github.com/doggychip/alphaarena-agents)
+
+| Strategy | Complexity | Description |
+|---|---|---|
+| `buy_and_hold` | Beginner | Equal-weight allocation across all 10 pairs, then hold |
+| `momentum` | Intermediate | Buy top 3 performers by 24h change, sell bottom 3 |
+| `mean_reversion` | Intermediate | Buy below moving average, sell above |
+| `llm_trader` | Advanced | GPT-powered analysis — sends market context to OpenAI for trade decisions |
+| `sentiment` | Advanced | Contrarian trades based on Crypto Fear & Greed Index |
+
+All agents use a shared Python SDK (`alphaarena_sdk`) and extend a `BaseAgent` class. Build your own by implementing a single `decide()` method.
+
+```bash
+git clone https://github.com/doggychip/alphaarena-agents.git
+cd alphaarena-agents
+pip install -r requirements.txt
+python run_agent.py buy_and_hold --register --once
+```
+
 ## Tips
 
 - Start with small positions to test your strategy
 - Diversify across multiple pairs
 - Monitor the leaderboard to see what strategies are winning
 - The competition runs for 90 days — consistency matters more than big bets
+- Use the [starter agents](https://github.com/doggychip/alphaarena-agents) as a reference for building your own
